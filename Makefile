@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+         #
+#    By: ooutabac <ooutabac@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/09 11:29:51 by ooutabac          #+#    #+#              #
-#    Updated: 2023/05/19 10:49:53 by kalshaer         ###   ########.fr        #
+#    Updated: 2023/06/06 20:47:38 by ooutabac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME		=	minishell
 
 LIBFT_DIR	=	libft
 LIBFT		=	libft.a
-RL_INC		=	-I /usr/local/opt/readline/include
-RL_LINK		=	-L /usr/local/opt/readline/lib -l readline
+RL_INC		=	-I /usr/local/opt/readline/include #-I /goinfre/include
+RL_LINK		=	-L /usr/local/opt/readline/lib -l readline #-L /goinfre/lib -l readline
 
 INC_DIR		=	include
 SRC_DIR		=	src
@@ -30,6 +30,8 @@ SRCS		=	src/main.c					\
 				parsing/utils5.c			\
 				parsing/utils6.c			\
 				parsing/utils7.c			\
+				parsing/skip.c				\
+				parsing/count_redirections.c\
 				parsing/free.c				\
 				builtin/echo.c				\
 				builtin/env.c				\
@@ -51,7 +53,7 @@ SRCS		=	src/main.c					\
 OBJS		=	$(SRCS:%c=%o)
 
 CC			=	gcc
-CFLAGS		=	-g -Wall -Wextra -Werror -fsanitize=address
+CFLAGS		=	-Wall -Wextra -Werror -fsanitize=address -g3
 RM			=	rm -rf
 
 all:		$(NAME)
@@ -109,3 +111,6 @@ fclean:		clean
 re:			fclean all
 
 .PHONY:		all clean fclean re
+
+mem:
+	valgrind -s --track-fds=yes --tool=memcheck --leak-check=full --show-leak-kinds=all --suppressions=.ignore_readline ./minishell
