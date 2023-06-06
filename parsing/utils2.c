@@ -80,9 +80,6 @@ t_shell_s	*get_env_struct(t_shell_s *minishell, char *envp[])
 		minishell->envp->envp = ft_calloc(sizeof(char *), 1);
 		minishell->envp->key = ft_calloc(sizeof(char *), 1);
 		minishell->envp->value = ft_calloc(sizeof(char *), 1);
-		minishell->envp->envp = NULL;
-		minishell->envp->key = NULL;
-		minishell->envp->value = NULL;
 		return (minishell->envp->env_size = 0, minishell);
 	}
 	count.i = 0;
