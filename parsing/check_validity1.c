@@ -96,7 +96,7 @@ int	check_validity(t_shell_s *minishell, char *str)
 		return (TRUE);
 	if (!minishell || !minishell->lexer || !minishell->lexer->raw_tokens
 		|| !minishell->lexer->raw_tokens[0])
-		return (FALSE);
+		return (minishell->lexer = NULL, FALSE);
 	count.i = 0;
 	count.j = 0;
 	if (minishell->lexer->raw_tokens
