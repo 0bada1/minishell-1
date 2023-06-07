@@ -6,7 +6,7 @@
 #    By: ooutabac <ooutabac@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/09 11:29:51 by ooutabac          #+#    #+#              #
-#    Updated: 2023/06/06 20:47:38 by ooutabac         ###   ########.fr        #
+#    Updated: 2023/06/07 20:23:09 by ooutabac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,34 +21,53 @@ INC_DIR		=	include
 SRC_DIR		=	src
 OBJ_DIR		=	objects
 
-SRCS		=	src/main.c					\
-				parsing/parse.c				\
-				parsing/utils1.c			\
-				parsing/utils2.c			\
-				parsing/utils3.c			\
-				parsing/utils4.c			\
-				parsing/utils5.c			\
-				parsing/utils6.c			\
-				parsing/utils7.c			\
-				parsing/skip.c				\
-				parsing/count_redirections.c\
-				parsing/free.c				\
-				builtin/echo.c				\
-				builtin/env.c				\
-				builtin/pwd.c				\
-				builtin/unset.c				\
-				builtin/exit.c				\
-				builtin/export.c			\
-				builtin/cd.c				\
-				builtin/builtin_utils.c		\
-				src/excution.c				\
-				src/exec_child.c			\
-				src/redir.c					\
-				src/exec_heredoc.c			\
-				src/exec_infile.c			\
-				src/exec_outfile.c			\
-				src/pipes.c					\
-				src/signal.c				\
+SRCS		=	parsing/check_validity1.c		\
+				parsing/check_validity2.c		\
+				parsing/count_redirections.c	\
+				parsing/dollar_sign1.c			\
+				parsing/dollar_sign2.c			\
+				parsing/dollar_sign3.c			\
+				parsing/dollar_sign4.c			\
+				parsing/dollar_sign5.c			\
+				parsing/dollar_sign6.c			\
+				parsing/dollar_sign7.c			\
+				parsing/dollar_sign8.c			\
+				parsing/free.c					\
+				parsing/get_commands.c			\
+				parsing/get_env_struct.c		\
+				parsing/get_exec_struct.c		\
+				parsing/get_files1.c			\
+				parsing/get_files2.c			\
+				parsing/get_flags.c				\
+				parsing/length_to_pipe.c		\
+				parsing/lexer1.c				\
+				parsing/lexer2.c				\
+				parsing/num_tokens.c			\
+				parsing/parse.c					\
+				parsing/raw_lexer1.c			\
+				parsing/raw_lexer2.c			\
+				parsing/skip1.c					\
+				parsing/skip2.c					\
+				parsing/split_command_block.c	\
+				parsing/split_pipes.c			\
+				parsing/token_size.c			\
+				src/main.c						\
+				builtin/echo.c					\
+				builtin/env.c					\
+				builtin/pwd.c					\
+				builtin/unset.c					\
+				builtin/exit.c					\
+				builtin/export.c				\
+				builtin/cd.c					\
+				builtin/builtin_utils.c			\
+				src/excution.c					\
+				src/exec_child.c				\
+				src/redir.c						\
+				src/exec_heredoc.c				\
+				src/exec_infile.c				\
+				src/exec_outfile.c				\
+				src/pipes.c						\
+				src/signal.c					\
 
 OBJS		=	$(SRCS:%c=%o)
 
