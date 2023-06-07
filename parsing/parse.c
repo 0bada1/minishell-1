@@ -77,7 +77,8 @@ t_shell_s	*parse(t_shell_s *minishell, char *str, char **envp, int iteration)
 	if (check_validity(minishell, str) == FALSE)
 	{
 		free_after_execution(minishell);
-		ft_putstr_fd("Error: Syntax\n", STDERR_FILENO);
+		if (minishell && minishell->lexer)
+			ft_putstr_fd("Error: Syntax\n", STDERR_FILENO);
 		g_exit_code = 2;
 		return (minishell);
 	}
