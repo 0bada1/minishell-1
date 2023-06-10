@@ -49,12 +49,3 @@ signal, sigaction, sigemptyset, sigaddset
 
 11) char *getcwd(char *buf, size_t size);
 The getcwd() function copies an absolute pathname of the current working directory to the array pointed to by buf, which is of length size.
-
-12) 
-
-**STEPS**
-
-
-**THINGS TO ADD**
-* Why do we have a list of infiles and outfiles?
-- Reason is that there could be multiple infiles or outfiles in the same prompt
